@@ -1,6 +1,6 @@
-.restaurants {
+.root {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 10px;
   padding-inline: 3rem;

@@ -4,11 +4,20 @@
   min-height: 150px;
 }
 
-.title {
-  text-align: center;
+.link {
   font-size: 20px;
   font-weight: normal;
-  font-style: normal;
+  align-self: center;
+  padding: 0.5rem;
+  opacity: 1;
+  border-radius: 10px;
+  transition: transform 1s, opacity 1s, background-color 1s;
+
+  &:hover {
+    opacity: 0.5;
+    background-color: antiquewhite;
+    transform: scale(110%) translate(0.2rem, -0.2rem);
+  }
 }
 
 .login {

@@ -13,7 +13,7 @@ const ReviewContainer = ({ review }) => {
     return <div>Loading...</div>;
   }
 
-  if (!review) {
+  if (!review && !user) {
     return null;
   }
 

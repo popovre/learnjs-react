@@ -1,11 +1,13 @@
 import Restaurant from './component';
 import { useGetRestaurantsQuery } from '../../redux/services/api';
+import { useParams } from 'react-router-dom';
 
-const RestaurantContainer = ({ id }) => {
+const RestaurantContainer = () => {
+  const { restaurantId } = useParams();
   const { data: restaurant } = useGetRestaurantsQuery(undefined, {
     selectFromResult: (result) => ({
       ...result,
-      data: result.data.find((restaurant) => restaurant.id === id),
+      data: result.data?.find((restaurant) => restaurant.id === restaurantId),
     }),
   });
 

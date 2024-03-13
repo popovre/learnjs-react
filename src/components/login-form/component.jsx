@@ -28,9 +28,6 @@ const LoginForm = ({ onClose }) => {
   const { setUser } = useContext(UserContext);
 
   const loginUser = (userData) => {
-    // (userData.name === 'validName') & (userData.mail === 'validMail')
-    //   ? setUser({ name: 'validName', mail: 'validMail' })
-    //   : setUser(USER_DEFAULT);
     setUser({
       name: userData.name,
       id: 'a304959a-76c0-4b34-954a-b38dbf310360',

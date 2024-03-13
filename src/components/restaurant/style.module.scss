@@ -1,14 +1,14 @@
 .root {
+  align-self: flex-end;
   padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  min-width: 30%;
+  width: 550px;
   background-color: rgb(255, 247, 238);
   outline: 2px solid rgb(195, 190, 190);
   border-radius: 10px;
-  max-width: 550px;
 }
 
 .h1 {
@@ -28,9 +28,17 @@
   margin-left: 45%;
 }
 
-.reviewTitle {
+.linkWrapper {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .restaurantName {
   align-self: flex-start;
+}
+
+.button {
+  font-size: 20px;
 }

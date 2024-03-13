@@ -17,7 +17,6 @@ export const store = configureStore({
     cartSlice,
     api
   ),
-  // [api.reducerPath]: api.reducer,
 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),

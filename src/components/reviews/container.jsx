@@ -1,22 +1,11 @@
 import Reviews from './component';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { getReviewsByRestaurantId } from '../../redux/entities/review/thunks/get-reviews-by-restaurant-id';
-import { getUsers } from '../../redux/entities/user/thunks/get-users';
 import { useGetReviewsQuery } from '../../redux/services/api';
+import { useParams } from 'react-router-dom';
+import CreateReviewFormContainer from '../create-review-form/container';
 
-const ReviewsContainer = ({ restaurant }) => {
-  // const { data: reviews, isLoading } = useGetReviewsQuery(restaurant.id, {
-  //   selectFromResult: (result) => ({
-  //     ...result,
-  //     data: result.data?.filter((review) =>
-  //       restaurant.reviews.includes(review.id)
-  //     ),
-  //   }),
-  // });
-
-  const { data: reviews, isFetching } = useGetReviewsQuery(restaurant.id);
-  console.log(reviews);
+const ReviewsContainer = () => {
+  const { restaurantId } = useParams();
+  const { data: reviews, isFetching } = useGetReviewsQuery(restaurantId);
 
   if (isFetching) {
     return <div>Loading...</div>;
@@ -25,7 +14,13 @@ const ReviewsContainer = ({ restaurant }) => {
   if (!reviews?.length) {
     return null;
   }
-  return <Reviews reviews={reviews} />;
+
+  return (
+    <div>
+      <Reviews reviews={reviews} />
+      <CreateReviewFormContainer restaurantId={restaurantId} />
+    </div>
+  );
 };
 
 export default ReviewsContainer;

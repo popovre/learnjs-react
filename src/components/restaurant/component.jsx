@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import styles from './style.module.scss';
-import MenuContainer from '../menu/container';
-import ReviewsContainer from '../reviews/container';
-import CreateReviewFormContainer from '../create-review-form/container';
+import { Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Restaurant = ({ restaurant }) => {
   return (
@@ -10,11 +9,23 @@ const Restaurant = ({ restaurant }) => {
       <h1 className={classNames(styles.h1, styles.restaurantName)}>
         {restaurant.name}
       </h1>
-      <h3 className={classNames(styles.h3)}>Menu</h3>
-      <MenuContainer restaurant={restaurant} />
-      <h3 className={classNames(styles.h3, styles.reviewTitle)}>Reviews</h3>
-      <ReviewsContainer restaurant={restaurant} />
-      <CreateReviewFormContainer restaurantId={restaurant.id} />
+      <div className={classNames(styles.linkWrapper)}>
+        <NavLink to="reviews">
+          {({ isActive }) => (
+            <button className={classNames(styles.button)} disabled={isActive}>
+              Reviews
+            </button>
+          )}
+        </NavLink>
+        <NavLink to="menu">
+          {({ isActive }) => (
+            <button className={classNames(styles.button)} disabled={isActive}>
+              Menu
+            </button>
+          )}
+        </NavLink>
+      </div>
+      <Outlet />
     </div>
   );
 };

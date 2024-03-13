@@ -2,9 +2,13 @@ import Button from '../button/component';
 import classNames from 'classnames';
 import styles from './style.module.scss';
 
-const RestaurantTab = ({ name, onClick }) => {
+const RestaurantTab = ({ name, disabled }) => {
   return (
-    <Button className={classNames(styles.button)} onClick={onClick}>
+    <Button
+      className={classNames(styles.button)}
+      disabled={disabled}
+      onClick={() => {}}
+    >
       {name}
     </Button>
   );
